@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import PostCard from './components/postcard'
 
 function App() {
 
@@ -9,14 +10,14 @@ function App() {
     {
       id: 1,
       profileImage: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg',
-      username: 'alice',
+      username: 'bob',
       content: 'This is my first post!',
       isLiked: false,
     },
     {
       id: 2,
       profileImage: 'https://writestylesonline.com/wp-content/uploads/2016/08/Follow-These-Steps-for-a-Flawless-Professional-Profile-Picture.jpg',
-      username: 'bob',
+      username: 'alice',
       content: 'Loving this social media app.',
       isLiked: true,
     },
@@ -31,9 +32,13 @@ function App() {
 
   return (
     <>
-      
+    {
+      initialPosts.map((post) => (
+            <PostCard key={post.id} post={post} />
+      ))
+    }
     </>
-  )
+  );
 }
 
 export default App
